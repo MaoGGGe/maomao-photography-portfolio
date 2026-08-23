@@ -1,4 +1,4 @@
-/* Hallmark · genre: modern-minimal · macrostructure: Portfolio Grid · H2 cover: ratio=7/5, proof=right, divider=soft-dissolve
+/* Hallmark · genre: modern-minimal · macrostructure: Portfolio Grid · H2 cover: ratio=7/5, proof=right, divider=unified-frame
  * theme: custom · vibe: "archival warmth, quiet glass, precise" · paper: oklch(95% 0.012 76) · accent: oklch(47% 0.16 28)
  * display: Songti SC · body: PingFang/SF Pro · axes: light / roman-serif / warm · enrichment: E8 supplied photography
  * audience: school reviewers · use: resume QR landing page · tone: restrained, professional, image-led
@@ -216,12 +216,19 @@ button:disabled {
 
 .cover {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0;
   max-width: var(--content-max);
   margin-inline: auto;
   padding: 4.5rem var(--page-gutter) var(--space-xl);
+}
+
+.cover__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  border: var(--rule-hair) solid var(--color-rule-soft);
+  border-radius: var(--radius-panel);
+  background: var(--color-paper-elevated);
+  box-shadow: 0 1.5rem 4rem color-mix(in oklch, var(--color-shadow) 10%, transparent);
 }
 
 .cover__visual {
@@ -303,8 +310,8 @@ button:disabled {
   width: 100%;
   height: 100%;
   min-height: 13.5rem;
-  border-radius: var(--radius-media) var(--radius-media) 0 0;
-  box-shadow: 0 1.5rem 4rem color-mix(in oklch, var(--color-shadow) 11%, transparent);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .cover__photo picture,
@@ -315,7 +322,7 @@ button:disabled {
 
 .cover__photo img {
   object-fit: cover;
-  object-position: 54% center;
+  object-position: 70% center;
 }
 
 .cover__contact {
@@ -406,11 +413,10 @@ button:disabled {
   flex-direction: column;
   gap: var(--space-lg);
   padding: var(--space-xl);
-  border: var(--rule-hair) solid var(--color-rule-soft);
-  border-block-start: 0;
-  border-radius: 0 0 var(--radius-panel) var(--radius-panel);
+  border: 0;
+  border-radius: 0;
   background: var(--color-paper-elevated);
-  box-shadow: 0 1.25rem 3.5rem color-mix(in oklch, var(--color-shadow) 8%, transparent);
+  box-shadow: none;
 }
 
 .cover__identity {
@@ -461,6 +467,7 @@ button:disabled {
   gap: var(--space-xs);
   color: var(--color-accent);
   font-weight: 650;
+  margin-block-start: auto;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -911,39 +918,7 @@ button:disabled {
 
 @media (min-width: 60rem) {
   .cover {
-    grid-template-columns: minmax(0, 1.65fr) minmax(22rem, 1fr);
-    gap: 0;
-    min-height: clamp(42rem, 83dvh, 54rem);
-    align-items: stretch;
     padding-block-end: var(--space-2xl);
-  }
-
-  .cover__visual,
-  .cover__photo {
-    min-height: 38rem;
-  }
-
-  .cover__photo {
-    border-start-start-radius: var(--radius-media);
-    border-end-start-radius: var(--radius-media);
-    border-start-end-radius: 0;
-    border-end-end-radius: 0;
-  }
-
-  .cover__contact {
-    inset-block-start: var(--space-xl);
-    inset-inline-start: var(--space-xl);
-    grid-template-columns: 7rem minmax(0, 1fr);
-    width: min(19.5rem, calc(100% - 2 * var(--space-xl)));
-  }
-
-  .cover__sheet {
-    margin-block: var(--space-xl) 0;
-    margin-inline-start: calc(var(--space-xl) * -1);
-    gap: var(--space-xl);
-    padding: clamp(var(--space-xl), 3.2vw, var(--space-2xl));
-    border-block-start: var(--rule-hair) solid var(--color-rule-soft);
-    border-radius: var(--radius-panel);
   }
 
   .work-lede {
@@ -1025,11 +1000,41 @@ button:disabled {
   }
 }
 
-@media (min-width: 90rem) {
-  .cover__sheet {
-    margin-inline-start: calc(var(--space-2xl) * -1);
+@media (min-width: 72rem) {
+  .cover__frame {
+    grid-template-columns: minmax(0, 1.55fr) minmax(22rem, 1fr);
+    min-height: clamp(42rem, 80dvh, 50rem);
+    align-items: stretch;
   }
 
+  .cover__visual,
+  .cover__photo {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .cover__visual::after {
+    inset-block: 0;
+    inset-inline: auto 0;
+    width: clamp(2rem, 3vw, 3.5rem);
+    height: auto;
+    background: linear-gradient(90deg, transparent, var(--color-paper-elevated));
+  }
+
+  .cover__contact {
+    inset-block-start: var(--space-xl);
+    inset-inline-start: var(--space-xl);
+    grid-template-columns: 7rem minmax(0, 1fr);
+    width: min(19.5rem, calc(100% - 2 * var(--space-xl)));
+  }
+
+  .cover__sheet {
+    gap: var(--space-xl);
+    padding: clamp(var(--space-xl), 3.2vw, var(--space-2xl));
+  }
+}
+
+@media (min-width: 90rem) {
   .series,
   .case-study,
   .capability,
