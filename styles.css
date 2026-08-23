@@ -1,4 +1,4 @@
-/* Hallmark · genre: modern-minimal · macrostructure: Portfolio Grid · H2 cover: ratio=7/5, proof=right, divider=unified-frame
+/* Hallmark · genre: editorial · macrostructure: Portfolio Grid · project rhythm: independent mounted sheets
  * theme: custom · vibe: "archival warmth, quiet glass, precise" · paper: oklch(95% 0.012 76) · accent: oklch(47% 0.16 28)
  * display: Songti SC · body: PingFang/SF Pro · axes: light / roman-serif / warm · enrichment: E8 supplied photography
  * audience: school reviewers · use: resume QR landing page · tone: restrained, professional, image-led
@@ -7,7 +7,7 @@
  */
 @import url("tokens.css");
 
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
 
 *,
 *::before,
@@ -27,7 +27,7 @@ body {
   overflow-x: clip;
   color: var(--color-ink);
   background:
-    linear-gradient(180deg, var(--color-paper-elevated), var(--color-paper) 24rem);
+    linear-gradient(180deg, var(--color-paper-elevated), var(--color-paper-soft) 28rem);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.65;
@@ -491,7 +491,7 @@ button:disabled {
   gap: var(--space-lg);
   max-width: var(--content-max);
   margin-inline: auto;
-  padding: clamp(var(--space-xl), 6vw, var(--space-2xl)) var(--page-gutter) var(--space-2xl);
+  padding: clamp(var(--space-xl), 6vw, var(--space-2xl)) var(--page-gutter) clamp(var(--space-2xl), 7vw, var(--space-3xl));
 }
 
 .work-lede::before {
@@ -518,9 +518,17 @@ button:disabled {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-xl);
+  width: calc(100% - 2 * var(--page-gutter));
   max-width: var(--content-max);
   margin-inline: auto;
-  padding: var(--space-xl) var(--page-gutter) var(--space-3xl);
+  margin-block-end: clamp(var(--space-2xl), 7vw, var(--space-3xl));
+  padding: clamp(var(--space-lg), 4vw, var(--space-2xl));
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-panel);
+  background: var(--color-paper-elevated);
+  box-shadow:
+    0 0 0 var(--rule-hair) color-mix(in oklch, var(--color-paper-elevated) 80%, transparent) inset,
+    0 1.75rem 4.5rem color-mix(in oklch, var(--color-shadow) 13%, transparent);
 }
 
 .case-study__copy {
@@ -579,23 +587,26 @@ button:disabled {
 
 .case-study--reverse {
   position: relative;
-  max-width: none;
-  background: var(--color-paper-soft);
-}
-
-.case-study--reverse > * {
   max-width: var(--content-max);
+  background: var(--color-paper-elevated);
 }
 
 .series {
+  width: calc(100% - 2 * var(--page-gutter));
   max-width: var(--content-max);
   margin-inline: auto;
-  padding: var(--space-3xl) var(--page-gutter) var(--space-2xl);
+  margin-block-end: clamp(var(--space-2xl), 7vw, var(--space-3xl));
+  padding: clamp(var(--space-lg), 4vw, var(--space-2xl));
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-panel);
+  background: var(--color-paper-elevated);
+  box-shadow:
+    0 0 0 var(--rule-hair) color-mix(in oklch, var(--color-paper-elevated) 80%, transparent) inset,
+    0 1.75rem 4.5rem color-mix(in oklch, var(--color-shadow) 13%, transparent);
 }
 
 .series--day {
-  padding-block-start: var(--space-2xl);
-  padding-block-end: var(--space-3xl);
+  margin-block-end: clamp(var(--space-3xl), 9vw, var(--space-4xl));
 }
 
 .series__head {
@@ -935,7 +946,6 @@ button:disabled {
 
   .case-study--reverse {
     grid-template-columns: minmax(0, 1.45fr) minmax(20rem, 0.78fr);
-    padding-inline: max(var(--page-gutter), calc((100% - var(--content-max)) / 2 + var(--page-gutter)));
   }
 
   .case-study--reverse .case-study__copy {
