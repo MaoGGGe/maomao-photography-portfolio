@@ -660,7 +660,20 @@ button:disabled {
 .gallery {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-lg);
+  gap: var(--space-sm);
+}
+
+.gallery--night,
+.gallery--day {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.photo-card--tall {
+  grid-column: 1 / -1;
+}
+
+.photo-card--tall img {
+  aspect-ratio: 4 / 5;
 }
 
 .photo-card {
@@ -905,20 +918,8 @@ button:disabled {
     padding-block: var(--space-md);
   }
 
-  .gallery--night {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .photo-card--tall {
-    grid-column: 1 / -1;
-  }
-
-  .photo-card--tall img {
-    aspect-ratio: 4 / 5;
-  }
-
-  .gallery--day {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .gallery {
+    gap: var(--space-lg);
   }
 
   .site-footer {
