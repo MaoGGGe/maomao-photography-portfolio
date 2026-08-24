@@ -1,4 +1,4 @@
-/* Hallmark · custom tokens · archival warmth · restrained oxblood · soft native type */
+/* Hallmark · custom tokens · archival warmth · oxblood-red / editorial-blue hierarchy · soft native type */
 :root {
   --color-paper: oklch(95% 0.012 76);
   --color-paper-soft: oklch(92% 0.015 74);
@@ -9,6 +9,7 @@
   --color-rule: oklch(78% 0.014 72);
   --color-rule-soft: oklch(87% 0.012 74);
   --color-accent: oklch(47% 0.16 28);
+  --color-accent-secondary: oklch(43% 0.12 248);
   --color-focus: oklch(56% 0.19 28);
   --color-glass-base: oklch(98% 0.01 76);
   --color-glass-edge: oklch(100% 0.008 76);
@@ -26,7 +27,9 @@
   --text-xl: 1.953rem;
   --text-2xl: 2.441rem;
   --text-3xl: 3.052rem;
-  --text-display: clamp(2.45rem, 4.2vw, 4.4rem);
+  --text-project: clamp(1.75rem, 2.6vw, 2.75rem);
+  --text-section: clamp(2.3rem, 3.8vw, 3.8rem);
+  --text-display: clamp(2.7rem, 4.5vw, 4.65rem);
 
   --space-3xs: 0.125rem;
   --space-2xs: 0.25rem;

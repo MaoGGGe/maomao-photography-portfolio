@@ -1,11 +1,11 @@
 /* Hallmark · genre: editorial · macrostructure: Portfolio Grid · project rhythm: independent mounted sheets
- * theme: custom · vibe: "archival warmth, quiet glass, precise" · paper: oklch(95% 0.012 76) · accent: oklch(47% 0.16 28)
+ * theme: custom · vibe: "archival warmth, red-blue hierarchy, precise" · paper: oklch(95% 0.012 76) · primary: oklch(47% 0.16 28) · secondary: oklch(43% 0.12 248)
  * display: Songti SC · body: PingFang/SF Pro · axes: light / roman-serif / warm · enrichment: E8 supplied photography
  * audience: school reviewers · use: resume QR landing page · tone: restrained, professional, image-led
  * nav: N5 Floating pill · footer: Ft2 Inline · liquid-glass: user-directed, navigation, media controls, and contact overlay only
  * slop: pass (1–58) · contrast: pass (40–41) · honest: pass (46) · chrome: pass (47) · tokens: pass (48) · responsive: pass (49) · icons: pass (30) · mobile: pass (34, 49, 50–57)
  */
-@import url("tokens.css");
+@import url("tokens.css?v=20260824-9");
 
 /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
 
@@ -79,17 +79,19 @@ h2 {
   font-family: var(--font-display);
   font-style: normal;
   font-weight: 700;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
 }
 
 h1 {
+  color: var(--color-accent);
   font-size: var(--text-display);
-  line-height: 1.08;
+  line-height: 1.06;
 }
 
 h2 {
-  font-size: clamp(2rem, 3.4vw, 3.55rem);
-  line-height: 1.16;
+  color: var(--color-accent-secondary);
+  font-size: var(--text-project);
+  line-height: 1.14;
 }
 
 .skip-link {
@@ -432,15 +434,16 @@ button:disabled {
 
 .cover__identity {
   display: grid;
-  gap: var(--space-lg);
+  gap: var(--space-sm);
 }
 
 .cover__name,
 .case-study__meta,
 .series__index {
-  color: var(--color-muted);
+  color: var(--color-ink-soft);
   font-size: var(--text-sm);
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.035em;
 }
 
 .cover__intro {
@@ -461,6 +464,7 @@ button:disabled {
 }
 
 .evidence-list dt {
+  color: var(--color-accent-secondary);
   font-weight: 700;
 }
 
@@ -516,6 +520,9 @@ button:disabled {
 
 .work-lede h2 {
   max-width: 14ch;
+  color: var(--color-accent);
+  font-size: var(--text-section);
+  line-height: 1.08;
 }
 
 .work-lede p {
@@ -546,34 +553,36 @@ button:disabled {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   align-self: center;
 }
 
 .case-study__copy > p:not(.case-study__meta, .case-study__result) {
   max-width: 48ch;
   color: var(--color-ink-soft);
+  line-height: 1.7;
 }
 
 .case-study__result {
   display: grid;
   gap: var(--space-xs);
   max-width: 29rem;
+  margin-block-start: var(--space-xs);
   padding-block-start: var(--space-md);
   border-block-start: var(--rule-hair) solid var(--color-rule);
 }
 
 .case-study__result span {
-  color: var(--color-muted);
+  color: var(--color-ink-soft);
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .case-study__result strong {
   color: var(--color-accent);
   font-family: var(--font-display);
-  font-size: var(--text-lg);
-  line-height: 1.28;
+  font-size: clamp(var(--text-md), 1.9vw, var(--text-lg));
+  line-height: 1.25;
 }
 
 .case-study__result small {
@@ -658,13 +667,22 @@ button:disabled {
 
 .series__price span,
 .series__price small {
-  color: var(--color-muted);
   font-size: var(--text-sm);
 }
 
+.series__price span {
+  color: var(--color-ink-soft);
+  font-weight: 700;
+}
+
+.series__price small {
+  color: var(--color-muted);
+}
+
 .series__price strong {
+  color: var(--color-accent);
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-project);
   line-height: 1;
 }
 
@@ -718,6 +736,12 @@ button:disabled {
   align-self: start;
 }
 
+.capability__intro h2 {
+  color: var(--color-accent);
+  font-size: var(--text-section);
+  line-height: 1.08;
+}
+
 .capability__intro p {
   max-width: 48ch;
   color: var(--color-ink-soft);
@@ -737,8 +761,9 @@ button:disabled {
 }
 
 .spec-list dt {
-  color: var(--color-muted);
+  color: var(--color-accent-secondary);
   font-size: var(--text-sm);
+  font-weight: 700;
 }
 
 .spec-list dd {
@@ -760,8 +785,9 @@ button:disabled {
 }
 
 .site-footer__thanks {
+  color: var(--color-accent);
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-project);
   font-weight: 700;
   letter-spacing: -0.03em;
 }
